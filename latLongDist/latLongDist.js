@@ -5,90 +5,51 @@
 //    that the line of code serves.
 
 
-function toRadians(){
-	debugger
-}
-
-
 var findDistHaversine = (function(){
+	var RADIUS_KM = 6371;
+	
 	var _toRadians = function(coord){
 		return coord * Math.PI / 180;
 	};
 
-	var _findDiff = function(coord1, coord2){
-		return _toRadians(coord1 - coord2)
+	var _haversineLogic = function(dLati, dLongi, lati1, lati2){
+		 var a = Math.sin(dLati/2) * Math.sin(dLati/2) +
+             Math.sin(dLongi/2) * Math.sin(dLongi/2) *
+             Math.cos(lati1) * Math.cos(lati2);
+     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+     return RADIUS_KM * c;
 	};
 
-	var RADIUS_KM = 6471;
-
 	return function haversine(coords){
-		var lat1 = coords.initalPos.latitude;
-		var long1 = coords.initalPos.longitude;
-		var lat2 = coords.endPos.latitude;
-		var long2 = coords.endPos.latitude;
+		var lat1  = _toRadians(coords.initalPos.latitude);
+		var long1 = _toRadians(coords.initalPos.longitude);
+		var lat2  = _toRadians(coords.endPos.latitude);
+		var long2 = _toRadians(coords.endPos.longitude);
+		var dLat  = lat2  - lat1;
+		var dLong = long2 - long1;
 
-		var dLat = _findDiff(lat1, lat2);
-
-
-
+    return _haversineLogic(dLat, dLong, lat1, lat2);
 	}
-
-
 })();
-
-
-
-// function haversine(coords){
-// 	var RADIUS_KM = 6371;
-// 	return "hiii"
-
-
-// }
-
-
-
-
 
 
 
 
 var coordObj = {
 	initalPos: {
-		latitude: 37.7749295,
-		longitude: -122.41941550000001,
+		latitude: 37.77,
+		longitude: -122.41,
 	},
 	endPos: {
-		latitude: 38.90723089999999,
-		longitude: -77.03646409999999,
+		latitude: 38.90,
+		longitude: -77.03,
 	}
 }
 
 console.log(findDistHaversine(coordObj))
 
-// console.log(findDistance()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// https://github.com/niix/haversine/blob/master/haversine.js
 
