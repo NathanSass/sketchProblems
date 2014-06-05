@@ -6,16 +6,16 @@
 
 
 var findDistHaversine = (function(){          
-	var RADIUS_KM = 6371;                                                         // I made this capital because it is a constant
+	var RADIUS_KM = 6371;                                                                   // I made this capital because it is a constant
 	
-	var _toRadians = function(coord){                                             // I usually prefix my helper functions with '_'
+	var _toRadians = function(coord){                                                       // I usually prefix my helper functions with '_'
 		return coord * Math.PI / 180;
 	};
 
-	var _haversineLogic = function(coordObj){                                     // Although I very much enjoyed reading
-		var a = Math.sin(coordObj.dLat/2) * Math.sin(coordObj.dLat/2) +             // about this formula on wikipedia, I elected
-		        Math.sin(coordObj.dLong/2) * Math.sin(coordObj.dLong/2) *           // to keep it intact including the variable
-		        Math.cos(coordObj.lat1) * Math.cos(coordObj.lat2);                  // naming conventions.
+	var _haversineLogic = function(coordObj){                                               // Although I very much enjoyed reading
+		var a = Math.sin(coordObj.dLat/2) * Math.sin(coordObj.dLat/2) +                 // about this formula on wikipedia, I elected
+		        Math.sin(coordObj.dLong/2) * Math.sin(coordObj.dLong/2) *               // to keep it intact including the variable
+		        Math.cos(coordObj.lat1) * Math.cos(coordObj.lat2);                      // naming conventions.
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 		return RADIUS_KM * c;
 	};
@@ -37,20 +37,20 @@ var findDistHaversine = (function(){
 })();
 
 
-var coordObj = {                                                                // I chose to represent the data in this way 
-	initalPos: {                                                                  // because of a method in my LocalHUNT app
-		latitude: 37.77,                                                            // that packages data in a similar way as this.
-		longitude: -122.41,                                                         // I wanted to pretend that I was working on a
-	},                                                                            // code base.
+var coordObj = {                                                                                // I chose to represent the data in this way 
+	initalPos: {                                                                            // because of a method in my LocalHUNT app
+		latitude: 37.77,                                                                // that packages data in a similar way as this.
+		longitude: -122.41,                                                             // I wanted to pretend that I was working on a
+	},                                                                                      // code base.
 	endPos: {
 		latitude: 38.90,
 		longitude: -77.03,
 	}
 }
 
-console.log(findDistHaversine(coordObj))                                        // I wanted to pass in an object here
-                                                                                // instead of a big collection of numbers
-
+console.log(findDistHaversine(coordObj))                                                        // I wanted to pass in an object here
+                                                                                                // instead of a big collection of numbers
+ 
 
 // https://github.com/niix/haversine/blob/master/haversine.js                       I liked this guy's start, but I think he should have considered scope more.
 // http://www.movable-type.co.uk/scripts/latlong.html                               This was a good resource for checking my work
