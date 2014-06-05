@@ -30,8 +30,9 @@ function dropped(evt){
 function addListItem(){
 	event.preventDefault();
 	var inputText = $('input').val();
-	buildListItem(inputText);
-
+	if(inputText.length > 1){
+		buildListItem(inputText);
+	};
 }
 
 function buildListItem(text){
@@ -41,17 +42,17 @@ function buildListItem(text){
 
 function sortListItems(){
 	event.preventDefault();
-	var alphaOrdered = []
-	var currentList = $('ul li')
-	currentList.sort(function(a, b){
-		var keyA = $(a).text();
-	  var keyB = $(b).text();
+	var listItems = $('ul li')
+	listItems.sort(function(a, b){
+		var liA = $(a).text();
+	  var liB = $(b).text();
 
-	  if (keyA.toLowerCase() < keyB.toLowerCase()) return -1;
-    if (keyA.toLowerCase() > keyB.toLowerCase()) return 1;
+	  if (liA.toLowerCase() < liB.toLowerCase()) return -1;
+    if (liA.toLowerCase() > liB.toLowerCase()) return 1;
     return 0;
 	});
-	$.each(currentList, function(i, li){
+	
+	$.each(listItems, function(i, li){
 		$('ul').append(li)
 	})
 }
@@ -64,7 +65,7 @@ function bindListeners(){
 
 $( document ).ready(function(){
 	
-	bindListeners()
+	bindListeners();
 
 });
 
