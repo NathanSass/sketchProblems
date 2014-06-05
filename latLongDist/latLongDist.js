@@ -14,8 +14,8 @@ var findDistHaversine = (function(){
 
 	var _haversineLogic = function(coordObj){                                     // Although I very much enjoyed reading
 		var a = Math.sin(coordObj.dLat/2) * Math.sin(coordObj.dLat/2) +             // about this formula on wikipedia, I elected
-		       Math.sin(coordObj.dLong/2) * Math.sin(coordObj.dLong/2) *            // to keep it intact including the variable
-		       Math.cos(coordObj.lat1) * Math.cos(coordObj.lat2);                   // naming conventions.
+		        Math.sin(coordObj.dLong/2) * Math.sin(coordObj.dLong/2) *           // to keep it intact including the variable
+		        Math.cos(coordObj.lat1) * Math.cos(coordObj.lat2);                  // naming conventions.
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 		return RADIUS_KM * c;
 	};
