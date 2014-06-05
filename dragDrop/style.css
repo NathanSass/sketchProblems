@@ -19,6 +19,14 @@ li {
 	border:2px double #CCCCCC;
 }
 
+li:hover{
+	border:2px double green;
+}
+
 [draggable] {
 	user-select: none;
+}
+
+#template{
+	display: none;
 }
