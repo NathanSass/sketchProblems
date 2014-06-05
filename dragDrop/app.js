@@ -3,7 +3,7 @@ var source;
 
 function dragStarted(evt){
 	//start drag
-	source=evt.target;
+	source = evt.target;
 	//set data
 	evt.dataTransfer.setData("text/plain", evt.target.innerHTML);
 	//specify allowed transfer
