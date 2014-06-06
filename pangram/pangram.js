@@ -10,31 +10,37 @@
 
 
 var pangramChecker = (function(){
+
 	var letters = "zqxjkvbpygfwmucldrhsnioate".split('');
 	
-
 	var _checkLetter = function(currentLetter){
-		// debugger
-		// console.log(currentLetter)
-		var index = letters.indexOf(currentLetter.toLowerCase());
+		var index = letters.indexOf(currentLetter);
 		if (index > -1){
 			letters.splice(index, 1);
-			console.log(letters.length)
 		};
 
+	};
+
+	var _makeArray = function(str){
+		if(typeof(str) === 'string'){
+			return str.toLowerCase().split('');
+		}else{
+			return str;
+		};
 	}
 
 	return function pangram(phrase){
-		if(phrase.length > 0){
-			var currentLetter = phrase.pop();
+
+		var checkPhrase = _makeArray(phrase);
+		
+		if(checkPhrase.length > 0){
+			var currentLetter = checkPhrase.pop();
 			_checkLetter(currentLetter);
-			pangramChecker(phrase);
+			pangramChecker(checkPhrase);
 		}else{
 			if(letters.length === 0){
-				debugger
 				return null
 			}else{
-				debugger
 				return letters
 			}
 		}
@@ -42,7 +48,8 @@ var pangramChecker = (function(){
 })(); 
 
 // pangramChecker("the quick brown fox jumps over the lazy dog".split(''))
-console.log(pangramChecker("the quick brown fox jumps over the lazy dog".split('')))
+// console.log(pangramChecker("The quick brown FOX jumps over the lazy dog"))
+// console.log(pangramChecker("The quick brown FOX jumps over the lazy dog").split(''))
 // pangramChecker("abskj".split(''))
-	console.log(pangramChecker("abskj".split('')))
+// console.log(pangramChecker("ABskj"))
 
