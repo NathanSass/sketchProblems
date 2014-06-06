@@ -10,6 +10,11 @@
     font-size: 100px;
   }
 
+  #spinner:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
   #spinner .face1 { -webkit-transform: translateZ(60px);}
   #spinner .face2 { -webkit-transform: rotateY(90deg) translateZ(60px);}
   #spinner .face3 { -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(60px);}
@@ -19,11 +24,8 @@
 
 @-webkit-keyframes spincube {
     from,to  {                                                    }
-    16%      { -webkit-transform: rotateY(-90deg);                }
-    33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg); }
-    50%      { -webkit-transform: rotateY(180deg) rotateZ(90deg); }
-    66%      { -webkit-transform: rotateY(90deg) rotateX(90deg);  }
-    83%      { -webkit-transform: rotateX(90deg);                 }
+    25%      { -webkit-transform: rotateY(-90deg);                }
+    75%      { -webkit-transform: rotateX(90deg);                 }
 }
 
   #spinner {
@@ -33,6 +35,17 @@
     -webkit-animation-duration: 12s;
     -webkit-transform-style: preserve-3d;
     -webkit-transform-origin: 60px 60px 0;
+}
+
+/*Styling Below*/
+
+div.face:hover{
+  background: red !important;
+  /*font-size: 2px !important;*/
+}
+
+div:visited{
+  background: green;
 }
 
 
