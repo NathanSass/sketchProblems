@@ -10,30 +10,39 @@
 
 
 var pangramChecker = (function(){
-	var letters = "zqxjkvbpygfwmucldrhsnioate";
+	var letters = "zqxjkvbpygfwmucldrhsnioate".split('');
 	
 
 	var _checkLetter = function(currentLetter){
-		console.log(currentLetter)
-		console.log(Letters.indexOf(currentLetter) >= 0)
+		// debugger
+		// console.log(currentLetter)
+		var index = letters.indexOf(currentLetter.toLowerCase());
+		if (index > -1){
+			letters.splice(index, 1);
+			console.log(letters.length)
+		};
 
 	}
 
 	return function pangram(phrase){
-		var checkPhrase  = phrase
-		if(letters.length > 1){
-			var currentLetter = checkPhrase.pop();
+		if(phrase.length > 0){
+			var currentLetter = phrase.pop();
 			_checkLetter(currentLetter);
-			// console.log(currentLetter)
-			pangramChecker(checkPhrase);
-
+			pangramChecker(phrase);
 		}else{
-			// alert('here')
-			// return missingLetters
-			console.log(missingLetters)
+			if(letters.length === 0){
+				debugger
+				return null
+			}else{
+				debugger
+				return letters
+			}
 		}
 	};
 })(); 
 
-pangramChecker(['a', 'b', 'c', 'z'])
+// pangramChecker("the quick brown fox jumps over the lazy dog".split(''))
+console.log(pangramChecker("the quick brown fox jumps over the lazy dog".split('')))
+// pangramChecker("abskj".split(''))
+	console.log(pangramChecker("abskj".split('')))
 
