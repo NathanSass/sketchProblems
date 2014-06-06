@@ -1,14 +1,22 @@
+#stage{
+  padding-top: 15%;
+  margin:auto;
+  width:120px;
+  height: 120px;
+  text-align:center;
+}
+
 #spinner div {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 1px solid #ccc;
-    background: rgba(255,255,255,0.8);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-    text-align: center;
-    line-height: 120px;
-    font-size: 100px;
-  }
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.8);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 120px;
+  font-size: 100px;
+}
 
   #spinner:hover {
     -webkit-animation-play-state: paused;
@@ -23,7 +31,6 @@
   #spinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px);}
 
 @-webkit-keyframes spincube {
-    from,to  {                                                    }
     25%      { -webkit-transform: rotateY(-90deg);                }
     75%      { -webkit-transform: rotateX(90deg);                 }
 }
@@ -41,7 +48,6 @@
 
 div.face:hover{
   background: red !important;
-  /*font-size: 2px !important;*/
 }
 
 div:visited{
