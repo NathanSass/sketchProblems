@@ -17,8 +17,7 @@ var pangramChecker = (function(){
 		var index = letters.indexOf(currentLetter);
 		if (index > -1){
 			letters.splice(index, 1);
-		};
-
+		}
 	};
 
 	var _makeArray = function(str){
@@ -26,30 +25,30 @@ var pangramChecker = (function(){
 			return str.toLowerCase().split('');
 		}else{
 			return str;
-		};
+		}
+	};
+
+	var _resolveSolution = function(letters){
+		if(letters.length === 0){
+			return null;
+		} else {
+			return letters;
+		}
 	}
 
 	return function pangram(phrase){
-
 		var checkPhrase = _makeArray(phrase);
-		
-		if(checkPhrase.length > 0){
-			var currentLetter = checkPhrase.pop();
-			_checkLetter(currentLetter);
-			pangramChecker(checkPhrase);
-		}else{
-			if(letters.length === 0){
-				return null
-			}else{
-				return letters
-			}
-		}
+		if(checkPhrase.length === 0) {
+			return _resolveSolution(letters);
+		}	
+		var currentLetter = checkPhrase.pop();
+		_checkLetter(currentLetter);
+		return pangram(checkPhrase);
 	};
+
 })(); 
 
-// pangramChecker("the quick brown fox jumps over the lazy dog".split(''))
-// console.log(pangramChecker("The quick brown FOX jumps over the lazy dog"))
-// console.log(pangramChecker("The quick brown FOX jumps over the lazy dog").split(''))
-// pangramChecker("abskj".split(''))
+
+console.log(pangramChecker("The quick brown FOX jumps over the lazy dog"))
 // console.log(pangramChecker("ABskj"))
 
