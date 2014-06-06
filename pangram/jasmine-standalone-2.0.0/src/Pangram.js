@@ -22,6 +22,7 @@ var pangramChecker = (function(){
 
 	var _makeArray = function(str){
 		if(typeof(str) === 'string'){
+			_resetLetters()
 			return str.toLowerCase().split('');
 		}else{
 			return str;
@@ -34,6 +35,10 @@ var pangramChecker = (function(){
 		} else {
 			return letters;
 		}
+	}
+
+	var _resetLetters = function() {
+		letters = "zqxjkvbpygfwmucldrhsnioate".split('');
 	}
 
 	return function pangram(phrase){
