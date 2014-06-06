@@ -47,8 +47,3 @@ var pangramChecker = (function(){
 	};
 
 })(); 
-
-
-console.log(pangramChecker("The quick brown FOX jumps over the lazy dog"))
-// console.log(pangramChecker("ABskj"))
-
