@@ -37,15 +37,15 @@ var pangramChecker = (function(){
 	};
 
 	var _resolveSolution = function(letters){                 // This is where I decide if I have a pangram and
-		if(letters.length === 0){                               // resolve the final respose to the user.
+		if(letters.length === 0){                               // resolve the final response to the user.
 			return null;
 		} else {
 			return letters;
 		}
-	}
+	};
 
 	var _resetLetters = function() {                           
-		letters = "zqxjkvbpygfwmucldrhsnioate".split('');       // This is needed when the function is called with a new phrase
+		letters = "zqxjkvbpygfwmucldrhsnioate".split('');       // This is needed when the function is called with a new phrase.
 	};
 
 	return function pangram(phrase){                                                  
@@ -53,8 +53,8 @@ var pangramChecker = (function(){
 		if(checkPhrase.length === 0) {                           // This is my base case.
 			return _resolveSolution(letters);                      // I wanted to move this logic out of the main function.
 		}	                                                      
-		var currentLetter = checkPhrase.pop();                                 
-		_checkLetter(currentLetter);
+		var currentLetter = checkPhrase.pop();                                                 
+		_checkLetter(currentLetter);                               
 		return pangram(checkPhrase);                             // I did not have a return here for a long time and it took me a
 	};                                                         // while to figure out why the function was returning undefined.
 
