@@ -1,6 +1,9 @@
 
 var source;
 
+// el.addEventListener('dragOver',callback)
+// just have a dragstart listener
+
 function dragStarted(evt){
 	//start drag
 	source = evt.target;

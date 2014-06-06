@@ -23,7 +23,7 @@ var findDistHaversine = (function(){
 	return function haversine(coords){
 		var coordObj = {
 			
-			lat1:  _toRadians(coords.initalPos.latitude),                            // Although I considered just passing the coords
+			lat1:  _toRadians(coords.initalPos.latitude),                            // I considered just passing the coords
 			long1: _toRadians(coords.initalPos.longitude),                           // object into a helper function and have it sort
 			lat2:  _toRadians(coords.endPos.latitude),                               // out the details, I decided to leave it in the
 			long2: _toRadians(coords.endPos.longitude),                              // method because I realize that my coordObj is 
