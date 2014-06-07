@@ -1,23 +1,19 @@
 function DraggableList(list){
-	this.coolList = list;
-	this.source; // this is critical, it seems like I need this unless I want to nest listeners
-};
+	this.coolList = list;                                                      // I could have taken passing in DOM elements further.
+	this.source;                                                               // I can use this scoped variable or I could 
+};                                                                           // have nested listeners.                                
 
 DraggableList.prototype = {
 	bindListeners: function(){
 		$('.submit').click(this.addListItem.bind(this));
-		$('.sort').click(this.sortListItems.bind(this));
-		this._draggingListeners(this.coolList);
+		$('.sort').click(this.sortListItems.bind(this));                     
+		$(this.coolList).on('dragstart', 'li', this.dragStarted.bind(this));     //need to use a delegator since I will be adding li elements
+		$(this.coolList).on('dragover', 'li', this.dragOver.bind(this));
+		$(this.coolList).on('drop', 'li', this.dropped.bind(this));
 	},
-
-	_draggingListeners: function(list){
-		$(list).on('dragstart', 'li', this.dragStarted.bind(this)); //need to use a delegator since I may be adding elements
-		$(list).on('dragover', 'li', this.dragOver.bind(this));
-		$(list).on('drop', 'li', this.dropped.bind(this));
-	},
-
+	
 	dragStarted: function(evt){
-		this.source = evt.target;
+		this.source = evt.target;                                                // I need to refrence this in later click events
 		evt.originalEvent.dataTransfer.setData("text/plain", evt.target.innerHTML);
 		evt.originalEvent.dataTransfer.effectAllowed = "move";
 	},
@@ -28,30 +24,29 @@ DraggableList.prototype = {
 	},
 
 	dropped: function(evt){
-		var text = this.innerHTML
 		evt.originalEvent.preventDefault();
 		evt.originalEvent.stopPropagation();
-		this.source.innerHTML = evt.target.innerHTML; //source should be the one that started it
+		this.source.innerHTML = evt.target.innerHTML;              
 		evt.originalEvent.target.innerHTML = evt.originalEvent.dataTransfer.getData("text/plain");
 	},
 
 	addListItem: function(){
 		event.preventDefault();
-		var inputText = $('input').val();
-		if(inputText.length > 1){
-			this._buildListItem(inputText);
+		var inputText = $('input').val();                                         // grabs user input from DOM
+		if(inputText.length >= 1){                                                // avoids building empty li items                           
+			this._buildListItem(inputText);         
 		};
 	},
 	
 	_buildListItem: function(text){
-		var template = $('#template').clone().html(text).removeAttr('id').show();
-		$('ul').prepend(template)
+		var template = $('#template').clone().html(text).removeAttr('id').show(); // grabs the template which is already on the DOM,
+		$('ul').prepend(template);                                                // replicates it then appends it.
 	},
 
-	sortListItems: function(){
-		event.preventDefault();
-		var listItems = $('ul li')
-		listItems.sort(function(a, b){
+	sortListItems: function(){                                                  // I needed to make a function that takes into
+		event.preventDefault();                                                   // account the case of the letters but still preserves
+		var listItems = $('ul li')                                                // the case of the user input.             
+		listItems.sort(function(a, b){                                                     
 			var liA = $(a).text();
 		  var liB = $(b).text();
 
@@ -60,7 +55,7 @@ DraggableList.prototype = {
 	    return 0;
 		});
 		
-		$.each(listItems, function(i, li){
+		$.each(listItems, function(i, li){                                         // re appends to ellements in alphabetic order.
 			$('ul').append(li)
 		})
 	}
@@ -69,8 +64,8 @@ DraggableList.prototype = {
 
 
 
-$( document ).ready(function(){
-	var myList = $('ul');
-	var coolDragList = new DraggableList($('ul'));
+$( document ).ready(function(){                                               // I could have passed in all of the dom elements so it would
+	var myList = $('ul');                                                       // have been really easy to change class names in the html without
+	var coolDragList = new DraggableList($('ul'));                              // affecting the js. 
 	coolDragList.bindListeners();
 });
