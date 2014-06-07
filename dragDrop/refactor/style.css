@@ -1,26 +1,67 @@
 body, html {
-background-color:#CCFFCC; 
-font-family:sans-serif; 
-color:#330033; 
-text-align:center;
+	background-color: #1C1125; 
+	font-family:sans-serif; 
+	color:#330033; 
+	text-align:center;
+}
+
+h1{
+	color: #414198;
+	padding-top: 10%;
+}
+
+.container{
+	margin: auto;
+	width: 35%;
+	text-align:center;
 }
 
 ul {
-	margin:auto;
-	width:25%;
-	text-align:center;
+	padding: 0;
+	margin: 0;
+	width:100%;
 }
 
 li {
 	list-style-type:none;
 	padding:.5em;
 	margin: .25em;
-	background-color:#CCCCFF;
-	border:2px double #CCCCCC;
+	background-color:#414198;
+	border:2px double #3B1111;
 }
 
 li:hover{
-	border:2px double green;
+	background-color: #5757AE
+}
+
+form{
+	margin:auto;
+	padding: 0;
+	margin: 0;
+}
+
+form input{
+	width: 90%;
+	height:;
+	text-align:center;
+	height: 1.5em;
+	font-size: 1em;
+	background-color: rgb(214, 212, 234);
+}
+
+button{
+	margin-top: 6px;
+	font-size: 1em;
+	padding: 0.5em 1em;
+	border-radius: 3px;
+	border: 0px;
+	background: rgb(54, 127, 246);
+	color: rgb(77, 8, 0);
+}
+
+button:hover{
+	background: rgb(92, 153, 252);
+
 }
 
 [draggable] {

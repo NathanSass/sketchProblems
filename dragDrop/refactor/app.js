@@ -7,9 +7,13 @@ DraggableList.prototype = {
 	bindListeners: function(){
 		$('.submit').click(this.addListItem.bind(this));
 		$('.sort').click(this.sortListItems.bind(this));
-		$('ul').on('dragstart', 'li', this.dragStarted.bind(this)); //need to use a delegator since I may be adding elements
-		$('ul').on('dragover', 'li', this.dragOver.bind(this));
-		$('ul').on('drop', 'li', this.dropped.bind(this));
+		this._draggingListeners(this.coolList);
+	},
+
+	_draggingListeners: function(list){
+		$(list).on('dragstart', 'li', this.dragStarted.bind(this)); //need to use a delegator since I may be adding elements
+		$(list).on('dragover', 'li', this.dragOver.bind(this));
+		$(list).on('drop', 'li', this.dropped.bind(this));
 	},
 
 	dragStarted: function(evt){
@@ -67,6 +71,6 @@ DraggableList.prototype = {
 
 $( document ).ready(function(){
 	var myList = $('ul');
-	var coolDragList = new DraggableList(myList);
+	var coolDragList = new DraggableList($('ul'));
 	coolDragList.bindListeners();
 });
