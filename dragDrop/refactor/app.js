@@ -1,3 +1,4 @@
+
 var source;
 
 function dragStarted(evt){
@@ -18,46 +19,62 @@ function dropped(evt){
 	evt.target.innerHTML = evt.dataTransfer.getData("text/plain");
 }
 
-function addListItem(){
-	event.preventDefault();
-	var inputText = $('input').val();
-	if(inputText.length > 1){
-		buildListItem(inputText);
-	};
-}
 
-function buildListItem(text){
-	var template = $('#template').clone().html(text).removeAttr('id').show();
-	$('ul').prepend(template)
-}
 
-function sortListItems(){
-	event.preventDefault();
-	var listItems = $('ul li')
-	listItems.sort(function(a, b){
-		var liA = $(a).text();
-	  var liB = $(b).text();
 
-	  if (liA.toLowerCase() < liB.toLowerCase()) return -1;
-    if (liA.toLowerCase() > liB.toLowerCase()) return 1;
-    return 0;
-	});
-	
-	$.each(listItems, function(i, li){
-		$('ul').append(li)
-	})
-}
-
-function bindListeners(){
-	$('.submit').click(addListItem);
-	$('.sort').click(sortListItems);
+function DraggableList(list){
+	this.coolList = list;
 };
+
+DraggableList.prototype = {
+	bindListeners: function(){
+		$('.submit').click(this.addListItem.bind(this));
+		$('.sort').click(this.sortListItems.bind(this));
+		$('li').on('dragstart', function(e){
+			e.target
+			debugger
+		})
+	},
+	
+	addListItem: function(){
+		event.preventDefault();
+		var inputText = $('input').val();
+		if(inputText.length > 1){
+			this._buildListItem(inputText);
+		};
+	},
+	
+	_buildListItem: function(text){
+		var template = $('#template').clone().html(text).removeAttr('id').show();
+		$('ul').prepend(template)
+	},
+
+	sortListItems: function(){
+		event.preventDefault();
+		var listItems = $('ul li')
+		listItems.sort(function(a, b){
+			var liA = $(a).text();
+		  var liB = $(b).text();
+
+		  if (liA.toLowerCase() < liB.toLowerCase()) return -1;
+	    if (liA.toLowerCase() > liB.toLowerCase()) return 1;
+	    return 0;
+		});
+		
+		$.each(listItems, function(i, li){
+			$('ul').append(li)
+		})
+	}
+	
+
+}
+
 
 
 $( document ).ready(function(){
-	
-	bindListeners();
-
+	var myList = $('ul');
+	var coolDragList = new DraggableList(myList);
+	coolDragList.bindListeners();
 });
 
 
