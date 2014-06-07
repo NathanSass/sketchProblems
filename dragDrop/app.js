@@ -27,6 +27,7 @@ function dropped(evt){
 	//update text in dragged item
 	source.innerHTML = evt.target.innerHTML;
 	//update text in drop target
+	debugger
 	evt.target.innerHTML = evt.dataTransfer.getData("text/plain");
 }
 
