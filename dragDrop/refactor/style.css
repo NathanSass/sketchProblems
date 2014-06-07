@@ -10,11 +10,16 @@ h1{
 	padding-top: 10%;
 }
 
-
-ul {
+.container{
 	margin: auto;
 	width: 35%;
 	text-align:center;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	width:100%;
 }
 
 li {
@@ -36,7 +41,7 @@ form{
 }
 
 form input{
-	width: 15%;
+	width: 90%;
 	height:;
 	text-align:center;
 	height: 1.5em;

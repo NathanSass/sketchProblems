@@ -14,6 +14,8 @@ Technologies:
 ######dragDrop
 A drag and drop list that updates its textfields on the click of a button
 
+Refactor: I removed logic from the html and organized the code to have better control over variable scope.
+
 Technologies:
 - HTML5
 - Css3
