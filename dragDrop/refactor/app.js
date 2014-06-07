@@ -7,9 +7,9 @@ DraggableList.prototype = {
 	bindListeners: function(){
 		$('.submit').click(this.addListItem.bind(this));
 		$('.sort').click(this.sortListItems.bind(this));
-		$('li').on('dragstart', this.dragStarted.bind(this));
-		$('li').on('dragover', this.dragOver.bind(this));
-		$('li').on('drop', this.dropped.bind(this));
+		$('ul').on('dragstart', 'li', this.dragStarted.bind(this)); //need to use a delegator since I may be adding elements
+		$('ul').on('dragover', 'li', this.dragOver.bind(this));
+		$('ul').on('drop', 'li', this.dropped.bind(this));
 	},
 
 	dragStarted: function(evt){
@@ -28,7 +28,6 @@ DraggableList.prototype = {
 		evt.originalEvent.preventDefault();
 		evt.originalEvent.stopPropagation();
 		this.source.innerHTML = evt.target.innerHTML; //source should be the one that started it
-		// debugger
 		evt.originalEvent.target.innerHTML = evt.originalEvent.dataTransfer.getData("text/plain");
 	},
 
@@ -42,9 +41,6 @@ DraggableList.prototype = {
 	
 	_buildListItem: function(text){
 		var template = $('#template').clone().html(text).removeAttr('id').show();
-		$(template).on('dragstart', this.dragStarted.bind(this));
-		$(template).on('dragover', this.dragOver.bind(this));
-		$(template).on('drop', this.dropped.bind(this));
 		$('ul').prepend(template)
 	},
 
