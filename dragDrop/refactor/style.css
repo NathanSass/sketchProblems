@@ -1,0 +1,32 @@
+body, html {
+background-color:#CCFFCC; 
+font-family:sans-serif; 
+color:#330033; 
+text-align:center;
+}
+
+ul {
+	margin:auto;
+	width:25%;
+	text-align:center;
+}
+
+li {
+	list-style-type:none;
+	padding:.5em;
+	margin: .25em;
+	background-color:#CCCCFF;
+	border:2px double #CCCCCC;
+}
+
+li:hover{
+	border:2px double green;
+}
+
+[draggable] {
+	user-select: none;
+}
+
+#template{
+	display: none;
+}

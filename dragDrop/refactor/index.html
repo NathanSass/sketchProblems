@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Drag and Drop </title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<script src="./app.js"></script>
+</head>
+<body>
+	<h1> WOW A LIST </h1>
+	<ul>
+		<li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">Z</li>
+		<li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">X</li>
+		<li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">aaaaa</li>
+		<li draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)">Cccccc</li>
+
+		<li id='template' draggable="true" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)" ></li>
+	</ul>
+
+	<form>
+		<input type="text" placeholder="Enter a new item">
+		<button class='submit'> ADD </button>
+		<button class='sort'> SORT </button>
+	</form>
+</body>
+</html>
