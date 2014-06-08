@@ -1,19 +1,19 @@
 function DraggableList(list){
 	this.coolList = list;                                                      // I could have taken passing in DOM elements further.
-	this.source;                                                               // I can use this scoped variable or I could 
+	this.source;                                                               // I can use this 'source' scoped variable or I could 
 };                                                                           // have nested listeners.                                
 
 DraggableList.prototype = {
 	bindListeners: function(){
 		$('.submit').click(this.addListItem.bind(this));
 		$('.sort').click(this.sortListItems.bind(this));                     
-		$(this.coolList).on('dragstart', 'li', this.dragStarted.bind(this));     //need to use a delegator since I will be adding li elements
+		$(this.coolList).on('dragstart', 'li', this.dragStarted.bind(this));     //need to use a delegator since I will be adding li elements.
 		$(this.coolList).on('dragover', 'li', this.dragOver.bind(this));
 		$(this.coolList).on('drop', 'li', this.dropped.bind(this));
 	},
 	
 	dragStarted: function(evt){
-		this.source = evt.target;                                                // I need to refrence this in later click events
+		this.source = evt.target;                                                // I need to reference this in later click events.
 		evt.originalEvent.dataTransfer.setData("text/plain", evt.target.innerHTML);
 		evt.originalEvent.dataTransfer.effectAllowed = "move";
 	},
@@ -33,14 +33,14 @@ DraggableList.prototype = {
 	addListItem: function(){
 		event.preventDefault();
 		var inputText = $('input').val();                                         // grabs user input from DOM
-		if(inputText.length >= 1){                                                // avoids building empty li items                           
+		if(inputText.length >= 1){                                                // avoids building empty li items with this if statement                         
 			this._buildListItem(inputText);         
 		};
 	},
 	
 	_buildListItem: function(text){
 		var template = $('#template').clone().html(text).removeAttr('id').show(); // grabs the template which is already on the DOM,
-		$('ul').prepend(template);                                                // replicates it then appends it.
+		$('ul').prepend(template);                                                // replicates it then appends it to the head of the list.
 	},
 
 	sortListItems: function(){                                                  // I needed to make a function that takes into
@@ -55,7 +55,7 @@ DraggableList.prototype = {
 	    return 0;
 		});
 		
-		$.each(listItems, function(i, li){                                         // re appends to ellements in alphabetic order.
+		$.each(listItems, function(i, li){                                         // re appends to elements in alphabetic order.
 			$('ul').append(li)
 		})
 	}
