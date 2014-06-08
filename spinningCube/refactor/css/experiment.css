@@ -1,6 +1,3 @@
-h2 {
-    margin-top: 0;
-}
 
 .viewport {
     -webkit-perspective: 800;
@@ -26,14 +23,13 @@ h2 {
     -moz-transform: rotateX(-10deg) rotateY(20deg);
 }
 
-.cube h2 {
+.cube h1{
     color: #fff;
-    padding-top: 0;
-    margin-top: 0;
-}
+    text-align: center;
+    font-size: 45px;
+    font-family: Lato;
 
-.cube a {
-    color: #fff;
+    
 }
 
 .cube > div {
@@ -41,48 +37,43 @@ h2 {
     height: 360px;
     width: 360px;
     padding: 20px;
-    background-color: rgba(50, 50, 50, 0.85);
-    font-size: 1em;
-    line-height: 1em;
-    color: #fff;
     border: 1px solid #555;
     border-radius: 3px;
 }
 
 .cube > div:first-child  {
+    background: rgba(175, 95, 226, 0.8);
     -webkit-transform: rotateX(90deg) translateZ(200px);
     -moz-transform: rotateX(90deg) translateZ(200px);
 }
 
 .cube > div:nth-child(2) {
+    background: rgba(95, 226, 211, 0.8);
     -webkit-transform: translateZ(200px);
     -moz-transform: translateZ(200px);
 }
 
 .cube > div:nth-child(3) {
+    background: rgba(226, 216, 95, 0.8);
     -webkit-transform: rotateY(90deg) translateZ(200px);
     -moz-transform: rotateY(90deg) translateZ(200px);
-    text-align: center;
 }
 
 .cube > div:nth-child(4) {
+    background: rgba(95, 226, 159, 0.8);
     -webkit-transform: rotateY(180deg) translateZ(200px);
     -moz-transform: rotateY(180deg) translateZ(200px);
 }
 
 .cube > div:nth-child(5) {
+    background: rgba(226, 95, 95, 0.8);
     -webkit-transform: rotateY(-90deg) translateZ(200px);
     -moz-transform: rotateY(-90deg) translateZ(200px);
 }
 
-.cube > div:nth-child(5) p {
-    text-align: center;
-    font-size: 2.77em;
-    margin: 40px;
-    line-height: 60px;
-}
 
 .cube > div:nth-child(6) {
+     background: rgba(95, 141, 226, 0.8);
     -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
     -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
 }
