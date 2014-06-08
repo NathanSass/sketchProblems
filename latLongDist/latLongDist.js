@@ -28,7 +28,7 @@ var findDistHaversine = (function(){
 			lat2:  _toRadians(coords.endPos.latitude),                               // out the details, I decided to leave it in the
 			long2: _toRadians(coords.endPos.longitude),                              // method because I realize that my coordObj is 
 			dLat:  _toRadians(coords.endPos.latitude  - coords.initalPos.latitude),  // not the most efficient (read more below) and 
-			dLong: _toRadians(coords.endPos.longitude - coords.initalPos.longitude), // I wanted the next person changin this code
+			dLong: _toRadians(coords.endPos.longitude - coords.initalPos.longitude), // I wanted the next person changing this code
 			                                                                         // to notice that.
 		}
 
@@ -50,7 +50,3 @@ var coordObj = {                                                                
 
 console.log(findDistHaversine(coordObj))                                        // I wanted to pass in an object here
                                                                                 // instead of a big collection of numbers
- 
-
-// https://github.com/niix/haversine/blob/master/haversine.js                       I liked this guy's start, but I think he should have considered scope more.
-// http://www.movable-type.co.uk/scripts/latlong.html                               This was a good resource for checking my work
