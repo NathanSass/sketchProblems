@@ -1,0 +1,84 @@
+.viewport {
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 200px;
+    -webkit-transform: scale(0.75,0.75);
+    -moz-perspective: 800;
+    -moz-perspective-origin: 50% 200px;
+    -moz-transform: scale(0.75,0.75);
+}
+
+.cube {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 150px;
+    height: 400px;
+    width: 400px;
+    -webkit-transition: -webkit-transform 50ms linear;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg) rotateY(20deg);
+
+    -moz-transition: -moz-transform 50ms linear;
+    -moz-transform-style: preserve-3d;
+    -moz-transform: rotateX(-10deg) rotateY(20deg);
+}
+
+.cube h1{
+    color: #fff;
+    text-align: center;
+    font-size: 45px;
+    font-family: Lato;  
+}
+
+.cube > div {
+    position: absolute;
+    height: 360px;
+    width: 360px;
+    padding: 20px;
+    border: 1px solid #555;
+    border-radius: 3px;
+}
+
+.cube > div:first-child  {
+    background: rgba(175, 95, 226, 0.8);
+    -webkit-transform: rotateX(90deg) translateZ(200px);
+    -moz-transform: rotateX(90deg) translateZ(200px);
+}
+
+.cube > div:nth-child(2) {
+    background: rgba(95, 226, 211, 0.8);
+    -webkit-transform: translateZ(200px);
+    -moz-transform: translateZ(200px);
+}
+
+.cube > div:nth-child(3) {
+    background: rgba(226, 216, 95, 0.8);
+    -webkit-transform: rotateY(90deg) translateZ(200px);
+    -moz-transform: rotateY(90deg) translateZ(200px);
+}
+
+.cube > div:nth-child(4) {
+    background: rgba(95, 226, 159, 0.8);
+    -webkit-transform: rotateY(180deg) translateZ(200px);
+    -moz-transform: rotateY(180deg) translateZ(200px);
+}
+
+.cube > div:nth-child(5) {
+    background: rgba(226, 95, 95, 0.8);
+    -webkit-transform: rotateY(-90deg) translateZ(200px);
+    -moz-transform: rotateY(-90deg) translateZ(200px);
+}
+
+
+.cube > div:nth-child(6) {
+     background: rgba(95, 141, 226, 0.8);
+    -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+    -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(200px);
+}
+
+object {
+    opacity: 0.5;
+}
+
+object:hover {
+    opacity: 1;
+}
