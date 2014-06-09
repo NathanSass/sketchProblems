@@ -1,9 +1,7 @@
-
 .viewport {
     -webkit-perspective: 800;
     -webkit-perspective-origin: 50% 200px;
     -webkit-transform: scale(0.75,0.75);
-
     -moz-perspective: 800;
     -moz-perspective-origin: 50% 200px;
     -moz-transform: scale(0.75,0.75);
@@ -12,6 +10,7 @@
 .cube {
     position: relative;
     margin: 0 auto;
+    padding-top: 150px;
     height: 400px;
     width: 400px;
     -webkit-transition: -webkit-transform 50ms linear;
@@ -27,9 +26,7 @@
     color: #fff;
     text-align: center;
     font-size: 45px;
-    font-family: Lato;
-
-    
+    font-family: Lato;  
 }
 
 .cube > div {
@@ -84,25 +81,4 @@ object {
 
 object:hover {
     opacity: 1;
-}
-
-/* Zoom and blur experiment */
-/* As of June 10th 2012: filters are webkit only */
-/*************************************************/
-
-.zoom-wrapper {
-    -webkit-animation: zoom-in 5s linear infinite alternate;
-    -webkit-filter: blur(0);
-    -webkit-transform-style: preserve-3d;
-}
-
-@-webkit-keyframes zoom-in {
-    from {
-        -webkit-transform: translateZ(-1000px);
-        -webkit-filter: blur(3px);
-    }
-    to {
-        -webkit-transform: translateZ(100px);
-        -webkit-filter: blur(0);
-    }
 }

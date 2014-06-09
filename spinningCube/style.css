@@ -1,5 +1,5 @@
 body{
-  color: #FFF;
+  color: #FFF; 
 }
 
 #stage{
@@ -59,19 +59,19 @@ body{
   #spinner .face6 { -webkit-transform: rotateX(-90deg) translateZ(60px);}
 
 @-webkit-keyframes spincube {
-    30%      { -webkit-transform: rotateX(180deg);}
+    30%      { -webkit-transform: rotateX(180deg);} /* Hover effects do not work with z index */
     50%      { -webkit-transform: rotateY(-90deg);}
     70%      { -webkit-transform: rotateX(-90deg);}
     90%      { -webkit-transform: rotateY(180deg);}
 }
 
-  #spinner {
-    -webkit-animation-name: spincube;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 8s;
-    -webkit-transform-style: preserve-3d;
-    -webkit-transform-origin: 60px 60px 0;
+#spinner {
+  -webkit-animation-name: spincube;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 8s;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin: 60px 60px 0;
 }
 
 

@@ -7,7 +7,7 @@ sketchProblems - Please View in Chrome.
 Find the distance between between two coordinates in KM
 
 Technologies:
-- Vanilla Javascript
+- Vanilla JavaScript
 - Implementing a mathmatecal formula
 - Closures
 
@@ -19,15 +19,18 @@ Refactor: I removed logic from the html and organized the code to have better co
 ######Technologies:
 - HTML5
 - Css3
-- Vanilla Javascript
+- Vanilla JavaScript
 - Jquery
 
 ####spinningCube
-A spinning cube that has the ability to be selected.
+A spinning cube that has the ability to be have sides selected that stops the cube from spinning.
+
+Refactor: A CSS only solution did not allow for mouse manipulation. Implemented a JavaScript solution that uses mouse movements to control the cube.
 
 ######Technologies:
 - HTML5
 - CSS3
+- JavaScript (refactor)
 
 ####pangram
 Pangram: A short sentence containing all 26 letter of the English alphabet
