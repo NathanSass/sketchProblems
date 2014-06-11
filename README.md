@@ -1,8 +1,6 @@
 sketchProblems - Please View in Chrome.
 ==============
 
-### a collection of random challenges
-
 ######latLongDist
 Find the distance between between two coordinates in KM
 
@@ -45,6 +43,15 @@ Look in src/Pangram.js for main logic.
 - Recursion
 - Jasmine Testing
 - Technological Overkill
+
+####map
+Rebuilt the ruby enumerable map from scratch in ruby in javascript
+
+######Technologies:
+
+
+
+
 
 
 
