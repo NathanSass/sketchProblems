@@ -44,6 +44,15 @@ Look in src/Pangram.js for main logic.
 - Jasmine Testing
 - Technological Overkill
 
+####map
+Rebuilt the ruby enumerable map from scratch in ruby in javascript
+
+######Technologies:
+
+
+
+
+
 
 
 
