@@ -1,7 +1,7 @@
 var word = ["d", "y", "x", "f", "b", "s"]
 
 function alphabetize(arr){
-	var notSorted = true;
+	var notSorted = true
 
 	while(notSorted){
 		notSorted = false
