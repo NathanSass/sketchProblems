@@ -49,6 +49,9 @@ Rebuilt the ruby enumerable map from scratch in ruby in javascript
 
 ######Technologies:
 
+####fizzBuzzTxt
+A basic fizz buzz style problem that reads from a txt file.
+
 
 
 
