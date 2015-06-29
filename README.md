@@ -52,6 +52,12 @@ Rebuilt the ruby enumerable map from scratch in ruby in javascript
 ####fizzBuzzTxt
 A basic fizz buzz style problem that reads from a txt file.
 
+####swapCase
+A basic challenge that switches the case of a a letter in a string
+
+####nonRepeated
+Find the first non-repeated character in a string.
+
 
 
 
