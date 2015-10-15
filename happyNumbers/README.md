@@ -1,4 +1,4 @@
-# Max range sum
+# Happy Numbers
 [Click here](https://www.codeeval.com/open_challenges/39/)
 
 ## Challenge description
