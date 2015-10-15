@@ -21,7 +21,7 @@ function maxEarnings(arr, days) {
 			}
 
 			if (currentRun > max) {
-				max = currentRun
+				max = currentRun;
 			}
 
 		}
