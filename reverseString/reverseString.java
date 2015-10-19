@@ -23,7 +23,7 @@ public class reverseString {
             }
 
             System.out.printf("%s : %s \n", s, reversedString);
-            System.out.println("Bye!g");
+            System.out.println("Bye!");
         }
 
 
