@@ -5,9 +5,13 @@ import java.util.Arrays;
  */
 public class PenultimateWord {
     public static String printPenultimate(String phrase) {
-        System.out.println("PRINT THIS STTRING");
         String[] stringArr = phrase.split("\\s+");
         return stringArr[stringArr.length - 2];
+    }
+
+    public static void printPenultimate(String[] phrases) {
+        System.out.println("this where you pint out strings");
+        for(String word : phrases) System.out.println(printPenultimate(word));
     }
 
 
@@ -17,7 +21,12 @@ public class PenultimateWord {
         String printMe = printPenultimate(phrase1);
         System.out.println(printMe);
 
+        String[] arrOfPhrases = {"Check me out", "Hello world, it's a great day.", "another word to parse"};
+        printPenultimate(arrOfPhrases);
+
     }
+
+
 }
 
 
