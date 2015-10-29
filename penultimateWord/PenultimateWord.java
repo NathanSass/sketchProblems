@@ -23,7 +23,6 @@ public class PenultimateWord {
 
         String[] arrOfPhrases = {"Check me out", "Hello world, it's a great day.", "another word to parse"};
         printPenultimate(arrOfPhrases);
-
     }
 
 
