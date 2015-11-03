@@ -41,8 +41,6 @@ public class BeautifulStrings {
 
         ArrayList <Integer> charCount  = new ArrayList<>(charHashMap.values());
         Collections.sort(charCount, Collections.reverseOrder());
-        System.out.println(charCount.get(0).getClass().getName() );
-        System.out.println(charCount.getClass().getName());
 
         int beautyValue = 0;
         int currentBeauty = 26;
@@ -51,9 +49,6 @@ public class BeautifulStrings {
             int letterBeautyVal = charInstances * currentBeauty;
             beautyValue += letterBeautyVal;
             currentBeauty -= 1;
-
-            System.out.println(charInstances);
-
         }
         System.out.println(beautyValue);
     }
