@@ -1,13 +1,11 @@
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by nathansass on 10/27/15.
  */
+
 /*
 find the number of each char in the string
 organize the count of unique chars highest to lowest
@@ -16,14 +14,18 @@ start my multiplying by 26, then decrease by 1
     https://www.codeeval.com/open_challenges/83/
 */
 public class BeautifulStrings {
-    public static HashMap<String, Integer> charCountMap;// = new HashMap<String, Integer>();
 
-    public static HashMap <String, Integer> countCharOccurences (String str) {
+    public static HashMap<String, Integer> charCountMap;
+
+    public static HashMap<String, Integer> countCharOccurences(String str) {
         str = str.toLowerCase();
         charCountMap = new HashMap<>();
         for (int i = 0; i <= str.length() - 1; i++) {
+
             char c = str.charAt(i);
-            String letter = c +"";
+
+            String letter = c + "";
+
             if (!Character.isLetter(c)) {
                 continue;
             }
@@ -35,16 +37,15 @@ public class BeautifulStrings {
                 charCountMap.put(letter, 1);
             }
         }
+
         return charCountMap;
+
     }
 
+    public static int findBeauty(String string) {
+        HashMap<String, Integer> charHashMap = countCharOccurences(string);
 
-    public static void main(String[] args) {
-        String string1 = "ABbCcc";
-//        String string1 = "Good luck in the Facebook Hacker Cup this year!";
-        HashMap <String, Integer> charHashMap = countCharOccurences(string1);
-
-        ArrayList <Integer> charCount  = new ArrayList<>(charHashMap.values());
+        ArrayList<Integer> charCount = new ArrayList<>(charHashMap.values());
         Collections.sort(charCount, Collections.reverseOrder());
 
         int beautyValue = 0;
@@ -56,6 +57,17 @@ public class BeautifulStrings {
             beautyValue += letterBeautyVal;
             currentBeauty -= 1;
         }
+
+        return beautyValue;
+
+    }
+
+
+    public static void main(String[] args) {
+
+        String string1 = "ABbCcc";
+//        String string1 = "Good luck in the Facebook Hacker Cup this year!";
+        int beautyValue = findBeauty(string1);
         System.out.println(beautyValue);
     }
 }
