@@ -22,7 +22,11 @@ public class BeautifulStrings {
         str = str.toLowerCase();
         charCountMap = new HashMap<>();
         for (int i = 0; i <= str.length() - 1; i++) {
-            String letter = str.charAt(i) +"";
+            char c = str.charAt(i);
+            String letter = c +"";
+            if (!Character.isLetter(c)) {
+                continue;
+            }
 
             if (charCountMap.containsKey(letter)) {
                 int oldVal = charCountMap.get(letter);
@@ -37,6 +41,7 @@ public class BeautifulStrings {
 
     public static void main(String[] args) {
         String string1 = "ABbCcc";
+//        String string1 = "Good luck in the Facebook Hacker Cup this year!";
         HashMap <String, Integer> charHashMap = countCharOccurences(string1);
 
         ArrayList <Integer> charCount  = new ArrayList<>(charHashMap.values());
@@ -45,6 +50,7 @@ public class BeautifulStrings {
         int beautyValue = 0;
         int currentBeauty = 26;
         for (int i = 0; i < charCount.size(); i++) {
+
             int charInstances = (int) charCount.get(i);
             int letterBeautyVal = charInstances * currentBeauty;
             beautyValue += letterBeautyVal;
