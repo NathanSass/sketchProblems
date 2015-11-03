@@ -50,6 +50,7 @@ public class BeautifulStrings {
 
         int beautyValue = 0;
         int currentBeauty = 26;
+
         for (int i = 0; i < charCount.size(); i++) {
 
             int charInstances = (int) charCount.get(i);
