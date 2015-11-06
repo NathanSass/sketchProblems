@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  * Created by nathansass on 11/5/15.
@@ -9,14 +9,30 @@ import java.lang.reflect.Array;
 
 public class WordToDigit {
 
-    final String[] wordNumbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+    static final String[] WORD_NUMBERS = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 
-    private static void wordToDigit(String word) {
+    private static String wordToDigit(String word) {
+        String[] wordAsArray = sanitizeWord(word);
+        String wordAsDigits = "";
+        for (String wordAsNum : wordAsArray) {
+            int indexOfWord = Arrays.asList(WORD_NUMBERS).indexOf(wordAsNum);
+            wordAsDigits += indexOfWord;
+
+        }
+
+        return wordAsDigits;
+    }
+
+    private static String[] sanitizeWord(String word) {
+        String[] splitWord = word.split(";");
+        return splitWord;
     }
 
 
     public static void main(String[] args) {
         String word = "zero;two;five;seven;eight;four";
-        wordToDigit(word);
+        String word2 = "three;seven;eight;nine;two";
+        System.out.println("First word  : " + wordToDigit(word) +
+                "\nSecond word : " + wordToDigit(word2));
     }
 }
