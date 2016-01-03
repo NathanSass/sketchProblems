@@ -1,12 +1,32 @@
-var charArrays = [[ '2', '0', '6', '3', '1', '6', '3', '1', '6', '3', '1' ],[ '3','4','8','0','11','9','7','2','5','6','10','1','49','49','49','49' ],[ '1', '2', '3', '1', '2', '3', '1', '2', '3' ]];
-// var fs = require("fs");
-// fs.readFileSync('./data.txt').toString().split('\n').forEach(function(line){
-	// if (line !== "") {
-		// var charArray = line.split(/\s+/);
-charArrays.forEach(function(line) {
+// https://www.codeeval.com/open_challenges/5/
 
+var fs = require("fs");
 
-		console.log(line);
-})
-	// }
-// });
+fs.readFileSync('./data.txt').toString().split('\n').forEach(function(line){
+	
+	if (line !== "") {
+
+		function detectCycles(chars, repeatedChars) {
+			if (chars.length < 1) {
+				return repeatedChars;
+			} else {
+				var current = chars.shift();
+				if (chars.indexOf(current) > -1 &&
+					repeatedChars.indexOf(current) == -1) {
+					
+					repeatedChars.push(current);
+				}
+				return detectCycles(chars, repeatedChars);
+			}
+		}
+
+		var numArr = line.split(/\s+/).map(function(number) {
+			return parseInt(number, 10);
+		});
+		
+		var cycle = detectCycles(numArr, []);
+		
+		console.log( cycle.join(" ") );
+	}
+
+});
