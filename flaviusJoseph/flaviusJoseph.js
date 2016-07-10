@@ -1,16 +1,10 @@
-var peopleAlive = [0, 1, 2, 3, 4];
 
-var interval = 2;
-var skip = interval - 1;
-
-
-
-function flaviusJosepth(){
+function flaviusJoseph(peopleAlive, interval){
 	var result = [];
 	var firstIteration = true;
 	var pointer = 0;
 	var victim;
-	// var i = 4;
+	// var i = ;
 	while (peopleAlive.length) {
 	// while (i) {
 
@@ -27,9 +21,16 @@ function flaviusJosepth(){
 			
 		} else {
 			if (peopleAlive.length <= interval) {
-				pointer = peopleAlive.length - 1;
+				// needs work here
+				pointer = interval - pointer;
+				if (peopleAlive.length === 1) {
+					pointer = 0;
+				} else if ( pointer >= peopleAlive.length ) {
+					pointer = pointer - 1;
+				} 
+			
 			} else if ( pointer + interval <= peopleAlive.length) {
-				pointer += interval;
+				pointer += interval - 1;
 			} else {
 				pointer = ( pointer + interval) - peopleAlive.length - 1;
 			}
@@ -49,4 +50,5 @@ function flaviusJosepth(){
 	return result;
 }
 
-console.log(flaviusJosepth());
+console.log(flaviusJoseph( [0, 1, 2, 3, 4], 2 ));
+console.log(flaviusJoseph( [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 3 ));
