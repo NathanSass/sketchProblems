@@ -10,9 +10,9 @@ function flaviusJosepth(){
 	var firstIteration = true;
 	var pointer = 0;
 	var victim;
-	var i = 4;
-	// while (peopleAlive.length) {
-	while (i) {
+	// var i = 4;
+	while (peopleAlive.length) {
+	// while (i) {
 
 
 		if (firstIteration) {
@@ -28,8 +28,7 @@ function flaviusJosepth(){
 		} else {
 			if (peopleAlive.length <= interval) {
 				pointer = peopleAlive.length - 1;
-			}
-			else if ( pointer + interval <= peopleAlive.length) {
+			} else if ( pointer + interval <= peopleAlive.length) {
 				pointer += interval;
 			} else {
 				pointer = ( pointer + interval) - peopleAlive.length - 1;
@@ -43,8 +42,8 @@ function flaviusJosepth(){
 		
 
 		firstIteration = false;
-		console.log(result);
-		i -= 1;
+		// console.log(result);
+		// i -= 1;
 	}
 
 	return result;
