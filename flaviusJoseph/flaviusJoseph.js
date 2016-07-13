@@ -4,10 +4,8 @@ function flaviusJoseph(peopleAlive, interval){
 	var firstIteration = true;
 	var pointer = 0;
 	var victim;
-	// var i = ;
-	while (peopleAlive.length) {
-	// while (i) {
 
+	while (peopleAlive.length) {
 
 		if (firstIteration) {
 			pointer = interval - 1;
@@ -20,9 +18,11 @@ function flaviusJoseph(peopleAlive, interval){
 			pointer += interval - 1;
 			
 		} else {
+			
 			if (peopleAlive.length <= interval) {
-				// needs work here
+				
 				pointer = interval - pointer;
+				
 				if (peopleAlive.length === 1) {
 					pointer = 0;
 				} else if ( pointer >= peopleAlive.length ) {
@@ -43,8 +43,7 @@ function flaviusJoseph(peopleAlive, interval){
 		
 
 		firstIteration = false;
-		// console.log(result);
-		// i -= 1;
+
 	}
 
 	return result;
