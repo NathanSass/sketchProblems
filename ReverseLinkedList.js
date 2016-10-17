@@ -21,10 +21,12 @@ function reverseLinkedList(node) {
 	node.next = null; // stops circular reference
 
 	while (current !== null) {
-		future = current.next; // Save the reference to the next value
+		future = current.next; // Save the reference to the next value before we reverse the connection
 		current.next = prev; // make the reverse connection
-		prev = current; // increment the previous to the current one
-		current = future; // increment the current one to the next one
+		
+		// Step forward in the list
+		prev = current;
+		current = future;
 	}
 
 	return prev.toString();
@@ -35,11 +37,11 @@ function linkedListToString(node) {
 	var current = node;
 	var list = "";
 	while (current !== null) {
-		list += (current.value + " -> ")
+		list += (current.value + " -> ");
 		current = current.next;
-	} 
+	}
+	
 	return list;
-
 }
 
 var a = new LinkedListNode("a");
