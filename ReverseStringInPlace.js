@@ -32,8 +32,34 @@ function reverseInPlace(string) {
 	}
 
 	return chars.join("");
+}
 
+function reversePhrase(string) { // Better to reverse the string, then reverse each word
+	var wordsArr = string.split(" ");
+	var length = wordsArr.length
+	var maxI = Math.ceil(length / 2)
+
+	for (var i = 0; i <= maxI; i++) {
+		var swapHead = wordsArr[i];
+		var swapTail = wordsArr[length - i]
+
+		wordsArr[i] = swapTail
+		wordsArr[length - i] = swapHead
+	}
+
+	return wordsArr.join(" ");
 }
 
 
+var message = 'find you will pain only go you recordings security the into if'
+console.log(reversePhrase(message)); 
+
 console.log(reverseInPlace("abcde") === "edcba");
+
+
+
+
+
+
+
+
