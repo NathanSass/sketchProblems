@@ -1,3 +1,28 @@
+function numOfWaysToMakeSubset_BottomUp(amount, denom) {
+
+	var waysOfDoingNCents = [];
+
+	for(var i = 0; i <= amount; i++) {
+		waysOfDoingNCents[i] = 0;
+	}
+
+	waysOfDoingNCents[0] = 1;
+
+	for (var i = 0; i < denom.length; i++) {
+		var coin = denom[i];
+
+		for (var higherAmount = coin; higherAmount <= amount; higherAmount++) {
+			var higherAmountRemainder = higherAmount - coin;
+			waysOfDoingNCents[higherAmount] += waysOfDoingNCents[higherAmountRemainder]
+		}
+	}
+
+	return waysOfDoingNCents[amount];
+}
+
+console.log(numOfWaysToMakeSubset_BottomUp(5, [1,3,5]));
+
+
 
 function numOfWaysToMakeSubset(amountLeft, denom, i) {
 	var currentDenom = denom[i];
@@ -39,4 +64,4 @@ var arr = [3, 34, 4, 12, 5, 2];
 arr = arr.sort(function(a,b) {return a > b});
 
 // numOfWaysToMakeSubset(arr, a, 0)
-console.log(numOfWaysToMakeSubset(4, [1, 2], 0))
+// console.log(numOfWaysToMakeSubset(4, [1, 2], 0))
