@@ -23,8 +23,9 @@ function longestConsec2(nums) {
 	}
 
 	for (var key in ordered) {
-		if (!(parseInt(key, 10) - 1 in ordered)) {
-			var nextNum = parseInt(key, 10) + 1;
+		var keyInt = parseInt(key, 10);
+		if (!(keyInt - 1 in ordered)) {
+			var nextNum = keyInt + 1;
 			while (nextNum in ordered) {
 				currentStreak += 1;
 				nextNum += 1;
