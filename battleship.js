@@ -1,6 +1,48 @@
 /*
+	Looks for the top left corner of each ship
+*/
+
+function countBattleships(board) {
+	var m = board.length;
+	if (m == 0) return 0;
+	var n = board[0].length;
+
+	var count = 0;
+
+	for (var i = 0; i < m; i++) {
+		
+		for (var j = 0; j < n; j++) {
+			if (board[i][j] == '.') continue;
+			if (i > 0 && board[i-1][j] == 'X') continue;
+			if (j > 0 && board[i][j-1] == 'X') continue;
+			count++;
+		
+		}
+	}
+
+	return count;
+}
+
+var a = [
+"X..X",
+"...X",
+"...X"];
+
+var b = [
+"...X",
+"XXXX",
+"...X"];
+
+console.log(countBattleships(a))
+
+/*
 	iterate through the rows, when you get to an x check if it's horizontal or verticle
-	issue is that repeating
+	
+	When I find a "X", i figure out if it is a horizontal or verticle ship. Then I treat it accordingly.
+	I use loop to find it's extents, if it is touching other ships then I return false.
+
+	https://leetcode.com/problems/battleships-in-a-board/
+	misunderstood the questions, this one takes a board and if then returns the number of ships if it is valid
 */
 
 var countBattleships = function(board) {
@@ -62,15 +104,4 @@ var countBattleships = function(board) {
 	return shipCount;
 };
 
-
-var a = [
-"X..X",
-"...X",
-"...X"];
-
-var b = [
-"...X",
-"XXXX",
-"...X"];
-
-console.log(countBattleships(a));
+// console.log(countBattleships(a));
