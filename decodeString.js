@@ -9,9 +9,62 @@
 	s = "3[a]2[bc]", return "aaabcbc".
 	s = "3[a2[c]]", return "accaccacc".
 	s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
-
+	
+	d 3
+	s a
+	i [a2[c]]
 	
 */
+
+function decodeStr2d(str) {
+	var res = "";
+	var countStack = [];
+	var resStack = [];
+	var idx = 0;
+
+	while ( idx < str.length ) {
+		var current = str[idx];
+		if (isDigit(current)) {
+			var count = 0;
+
+			while(isDigit(str[idx])) {
+				count = 10 * count + (str[idx] - '0');
+				idx++
+			}
+
+			countStack.push(count);
+
+		} else if (current == '[') {
+			resStack.push(res);
+			res = "";
+			idx++
+		} else if (current == ']') {
+			var temp = resStack.pop();
+			var repeatTimes = countStack.pop();
+			for(var i = 0; i < repeatTimes; i++) {
+				temp += res;
+			}
+			res = temp;
+			idx++
+		} else {
+			res += str[idx++]
+		}
+	}
+
+	return res;
+}
+
+function isDigit(n) {
+	if ( isNaN(parseInt(n))) {
+		return false
+	} else {
+		return true;
+	}
+}
+
+console.log(decodeStr2d("3[a]2[bc]"));
+
+
 
 function decodeStr(input) {
 	var arr = input.split("");
@@ -20,7 +73,7 @@ function decodeStr(input) {
 	var chars = ""
 	
 	while(arr.length > 0) {
-		var eval = arr.shift();;
+		var eval = arr.shift();
 		if ( isNaN(parseInt(eval)) ) {
 			if (eval === "[") {
 				// find next closing bracked index, and make loop for amount inside
@@ -47,6 +100,6 @@ function decodeStr(input) {
 	return result;
 }
 
-console.log(decodeStr("3[a]2[bc]") == "aaabcbc");
-console.log(decodeStr("2[abc]3[cd]ef") == "abcabccdcdcdef"); //== "abcabccdcdcdef"
+// console.log(decodeStr("3[a]2[bc]") == "aaabcbc");
+// console.log(decodeStr("2[abc]3[cd]ef") == "abcabccdcdcdef"); //== "abcabccdcdcdef"
                                           //    abcabccdcdcdcdecdef
