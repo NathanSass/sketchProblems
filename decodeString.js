@@ -62,7 +62,7 @@ function isDigit(n) {
 	}
 }
 
-console.log(decodeStr2d("3[a]2[bc]"));
+console.log(decodeStr2d("3[a2[c]]"));
 
 
 
