@@ -11,29 +11,28 @@ Return true.
 */
 
 var subSeq = function(seq, str) {
-	var seqArr = seq.split("");
-	var findMe = seqArr.shift();
-	
+	var seqI = 0;
+	var len = seq.length;
+
 	for(var i = 0; i < str.length; i++){
-		if (str[i] === findMe) {
-			findMe = seqArr.shift();
+		if (str[i] === seq[seqI]) {
+			seqI++;
+			
+			if (seqI >= len - 1) {
+				return true;
+			}
 		}
 	}
 	
+	return false;
+}
+
 	// Array.prototype.forEach.call(str, function(el, i) {
 	// 	if (el === findMe) {
 	// 		findMe = seqArr.shift();
 	// 	}
 	// })
 
-	if (seqArr.length === 0 && !findMe) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-
 // console.log(subSeq("abc", "ahbgdc"));
-// console.log(subSeq("axc", "ahbgdc"));
-console.log(subSeq("acb", "ahbgdc"));
+console.log(subSeq("axc", "ahbgdc"));
+// console.log(subSeq("acb", "ahbgdc"));
