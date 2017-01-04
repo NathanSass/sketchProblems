@@ -14,18 +14,26 @@ var subSeq = function(seq, str) {
 	var seqArr = seq.split("");
 	var findMe = seqArr.shift();
 	
-	Array.prototype.forEach.call(str, function(el, i) {
-		if (el === findMe) {
+	for(var i = 0; i < str.length; i++){
+		if (str[i] === findMe) {
 			findMe = seqArr.shift();
 		}
-	})
+	}
+	
+	// Array.prototype.forEach.call(str, function(el, i) {
+	// 	if (el === findMe) {
+	// 		findMe = seqArr.shift();
+	// 	}
+	// })
 
-	if (seqArr.length === 0) {
+	if (seqArr.length === 0 && !findMe) {
 		return true;
 	} else {
 		return false;
 	}
 }
 
+
 // console.log(subSeq("abc", "ahbgdc"));
-console.log(subSeq("axc", "ahbgdc"));
+// console.log(subSeq("axc", "ahbgdc"));
+console.log(subSeq("acb", "ahbgdc"));
