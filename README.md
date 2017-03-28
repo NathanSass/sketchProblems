@@ -1,7 +1,7 @@
 sketchProblems - Please View in Chrome.
 ==============
 
-######latLongDist
+###### latLongDist
 Find the distance between between two coordinates in KM
 
 Technologies:
@@ -9,53 +9,53 @@ Technologies:
 - Implementing a mathmatecal formula
 - Closures
 
-####dragDrop
+#### dragDrop
 A drag and drop list that updates its textfields on the click of a button
 
 Refactor: I removed logic from the html and organized the code to have better control over variable scope.
 
-######Technologies:
+###### Technologies:
 - HTML5
 - Css3
 - Vanilla JavaScript
 - Jquery
 
-####spinningCube
+#### spinningCube
 A spinning cube that has the ability to be have sides selected that stops the cube from spinning.
 
 Refactor: A CSS only solution did not allow for mouse manipulation. Implemented a JavaScript solution that uses mouse movements to control the cube.
 
-######Technologies:
+###### Technologies:
 - HTML5
 - CSS3
 - JavaScript (refactor)
 
-####pangram
+#### pangram
 Pangram: A short sentence containing all 26 letter of the English alphabet
 My function lets you know if you have a pangram and if you do not, it lets you know what letters you are missing
 
 Begin by running SpecRunner.html to see passing jasmine tests.
 Look in src/Pangram.js for main logic.
 
-######Technologies:
+###### Technologies:
 - Vanilla Javascript
 - Immediatly Invoked Function Expressions (IIFE)
 - Recursion
 - Jasmine Testing
 - Technological Overkill
 
-####map
+#### map
 Rebuilt the ruby enumerable map from scratch in ruby in javascript
 
-######Technologies:
+###### Technologies:
 
-####fizzBuzzTxt
+#### fizzBuzzTxt
 A basic fizz buzz style problem that reads from a txt file.
 
-####swapCase
+#### swapCase
 A basic challenge that switches the case of a a letter in a string
 
-####nonRepeated
+#### nonRepeated
 Find the first non-repeated character in a string.
 
 
