@@ -8,7 +8,7 @@ n String to print
 3 1 2 1 1 
 */
 
-var results = [1]
+var results = ["1"]
 
 function getElement(n) {
 	while (results.length < n + 1) {
@@ -21,13 +21,13 @@ function getElement(n) {
 }
 
 function getNextElement(x) {
-	var prev = x + "";
+	var prevItem = x + "";
 	var result = "";
-	var prevChar = prev[0];
-	var currentChar = prev[0];
+	var prevChar = prevItem[0];
+	var currentChar = prevItem[0];
 	var count = 1;
-	for (var i = 1; i < prev.length; i++) {
-		currentChar = prev[i];
+	for (var i = 1; i < prevItem.length; i++) {
+		currentChar = prevItem[i];
 		if (prevChar == currentChar) {
 			count ++
 		} else {
@@ -44,4 +44,4 @@ function getNextElement(x) {
 	return result;
 }
 
-console.log(getNextElement(21))
+console.log(getElement(4) == "1211")
